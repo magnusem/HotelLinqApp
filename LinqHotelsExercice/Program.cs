@@ -145,10 +145,24 @@ namespace LinqHotelsExercise
 
             //Exercise, use LINQ to retrive the following information about Hotels and Rooms:
 
+            //var bookingList =
+            //    from mybookings in bookings
+            //    select mybookings;
+
             // 1) List full details of all Hotels:
-            var Booking
+            var bookingList =
+                from h in hotels
+                select h;
+
+            foreach (var item in bookingList)
+            {
+                Console.WriteLine(item);
+            }
 
             // 2) List full details of all hotels in Roskilde:
+            var hotelList =
+                from h in hotels
+                select 
 
             // 3) List the names of all hotels in Roskilde:
 
