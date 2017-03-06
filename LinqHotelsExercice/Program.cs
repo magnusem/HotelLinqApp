@@ -146,6 +146,7 @@ namespace LinqHotelsExercise
             //Exercise, use LINQ to retrive the following information about Hotels and Rooms:
 
             // 1) List full details of all Hotels:
+            var Booking
 
             // 2) List full details of all hotels in Roskilde:
 
