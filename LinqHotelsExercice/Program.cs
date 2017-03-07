@@ -230,8 +230,13 @@ namespace LinqHotelsExercise
 
             //10) what is the average price of a room at Hotel Scandic:
             var averagePriceHotelScandicRoom =
-                rooms.Where(x => x.Hotel.Name == "Scandic").Average(y => y.Price);
-            Console.WriteLine(averagePriceHotelScandicRoom);
+                from r in rooms
+                join h in hotels
+                on r.Hotel.HotelNo equals h.HotelNo
+                where h.Name.Equals("Scandic")
+                select r.Price;
+
+            Console.WriteLine(averagePriceHotelScandicRoom.Average());
 
             //11) what is the total revenue per night from all double rooms:
             var averageRevenuePrNightAllDRooms =
@@ -240,15 +245,24 @@ namespace LinqHotelsExercise
 
             //12) List price and type of all rooms at Hotel Prindsen:
             var PriceAndTypeAllRoomsHotelPrindsen =
+                from r in rooms
+                join h in hotels
+                on r.Hotel.HotelNo equals h.HotelNo
+                where h.Name.Equals("Prindsen")
+                select new { r.Price, r.Types };
+            foreach (var item in PriceAndTypeAllRoomsHotelPrindsen)
+            {
+                Console.WriteLine(item);
+            }
+             
 
+                //13) List distinct price and type of all rooms at Hotel Prindsen:
 
-            //13) List distinct price and type of all rooms at Hotel Prindsen:
+                //14) Join the Hotels and Rooms 
 
-            //14) Join the Hotels and Rooms 
+                //15) Be creative....use the join and some aggregate functions..
 
-            //15) Be creative....use the join and some aggregate functions..
-
-            Console.ReadLine();
+                Console.ReadLine();
 
         }
     }
