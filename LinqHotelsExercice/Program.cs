@@ -162,25 +162,81 @@ namespace LinqHotelsExercise
             // 2) List full details of all hotels in Roskilde:
             var hotelList =
                 from h in hotels
-                select 
+                where h.Address.Contains("4000")
+                select h;
+
+            foreach (var item in hotelList)
+            {
+                Console.WriteLine(item);
+            }
 
             // 3) List the names of all hotels in Roskilde:
+            var namesHotelList =
+                from h in hotels
+                where h.Address.Contains("4000")
+                select h.Name;
+
+            foreach (var item in namesHotelList)
+            {
+                Console.WriteLine(item);
+            }
 
             // 4) List all double rooms with a price below 400 pr night:
+            var doubleRoomBelow400List =
+                from r in rooms
+                where r.Price < 400
+                select r.Price;
+
+            foreach (var item in doubleRoomBelow400List)
+            {
+                Console.WriteLine(item);
+            }
 
             // 5) List all double or family rooms with a price below 400 pr night in ascending order of price:
+            var doubleOrfamilyPriceBelow400 =
+                from r in rooms
+                where r.Types == 'D' || r.Types == 'F' && r.Price < 400
+                select r;
+
+            foreach (var item in doubleOrfamilyPriceBelow400)
+            {
+                Console.WriteLine(item);
+            }
 
             // 6) List all hotels that starts with 'P':
+            var hotelsWithPList =
+                from h in hotels
+                where h.Name.StartsWith("P")
+                select h;
+
+            foreach (var item in hotelsWithPList)
+            {
+                Console.WriteLine(item);
+            }
 
             // 7) List the number of hotels:
+            var numberOfHotels =
+                hotels.Count();
+            Console.WriteLine(numberOfHotels);
 
             // 8) List the number of hotels in Roskilde:
-
+            var hotelsInRoskilde =
+                hotels.Count(x => x.Address.Contains("4000"));
+            Console.WriteLine(hotelsInRoskilde);
             // 9) what is the average price of a room:
+            var averagePriceOfARoom =
+                rooms.Average(x => x.Price);
+            Console.WriteLine(averagePriceOfARoom);
 
             //10) what is the average price of a room at Hotel Scandic:
+            var averagePriceHotelScandicRoom =
+                rooms.Where(x => x.Hotel.Name == "Scandic").Average(y => y.Price);
+            Console.WriteLine(averagePriceHotelScandicRoom);
 
             //11) what is the total revenue per night from all double rooms:
+            var averageRevenuePrNightAllDRooms =
+
+
 
             //12) List price and type of all rooms at Hotel Prindsen:
 
