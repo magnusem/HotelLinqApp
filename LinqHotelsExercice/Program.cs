@@ -255,7 +255,7 @@ namespace LinqHotelsExercise
                 Console.WriteLine(item);
             }
              
-
+             
                 //13) List distinct price and type of all rooms at Hotel Prindsen:
 
                 //14) Join the Hotels and Rooms 
