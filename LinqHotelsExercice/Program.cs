@@ -235,10 +235,12 @@ namespace LinqHotelsExercise
 
             //11) what is the total revenue per night from all double rooms:
             var averageRevenuePrNightAllDRooms =
-
-
+                rooms.Where(x => x.Types == 'D').Sum(y => y.Price);
+            Console.WriteLine(averageRevenuePrNightAllDRooms);
 
             //12) List price and type of all rooms at Hotel Prindsen:
+            var PriceAndTypeAllRoomsHotelPrindsen =
+
 
             //13) List distinct price and type of all rooms at Hotel Prindsen:
 
